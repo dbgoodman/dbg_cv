@@ -1,0 +1,139 @@
+%%%%%%%%%%
+% Ravi S. Jonnal - http://pointsofsail.org - rjonnal@indiana.edu
+% Preparing your CV using LaTeX and BibTeX. 
+%
+% URL: http://pointsofsail.org/wikka.php?wakka=LatexCV
+% Some rights reserved: http://creativecommons.org/licenses/by-sa/3.0/
+
+% Much of this template was borrowed from or inspired by Dario
+% Taraborelli's excellent article "Typesetting your academic CV in
+% LaTeX" (http://nitens.org/taraborelli/cvtex) and the associated
+% template, hence the by-sa license above. Where code was lifted
+% directly, an attribution is included. Copied code is indicated with a
+% '% *DT' following the line.
+%
+% Some key differences are noteworthy, and these differences represent
+% the utility of this template (if it has any):
+%
+% 1. It is written in plain LaTeX rather than XeTeX. While the latter
+% is included in most LaTeX distributions (texlive, miktex, and
+% others), I felt that a plain LaTeX template may be useful for some
+% people using legacy systems. There are many good reasons for using
+% XeTeX, chiefly the availability of expert fonts instead of LaTeX's
+% native fonts, which are problematic. (See
+% http://cs.gmu.edu/~sean/stuff/DoingLatexRight/ for a discussion of
+% some of these problems.)
+%
+% 2. It generates publications, proceedings, and presentations from a
+% BibTeX database, using the very nice bibentry package. bibentry is
+% part of the natbib package, which must be installed.
+%
+% Note: it may be necessary to insert \pagebreak[4] at places where
+% page breaks are desired. Because of an oddity with \marginpar, pages
+% are occasionally broken between the marginal year and the item
+% associated with that year. Placing \pagebreak[4] strategically can
+% avoid this problem. If you have a more elegant solution, please do
+% let me know.
+%
+%%%%%%%%%%
+
+
+\documentclass[10pt, letterpaper]{article}
+
+\usepackage{bibentry} % must have natbib package installed
+\usepackage{multicol} % part of most LaTeX distributions
+
+\usepackage[T1]{fontenc} % part of most LaTeX distributions
+% The choice of font below will be constrained by available fonts on
+% your system.  
+
+%\usepackage{palatino}
+%\usepackage{tgschola} 
+%\usepackage{venturisold}
+\usepackage{bookman}
+%\usepackage{georgia}
+
+
+%% Layout margins, marginal notes
+\usepackage{geometry} % part of most LaTeX distributions
+\geometry{letterpaper, marginparsep=7pt, marginparwidth=.6in, textwidth=5.75in, textheight=8in}
+
+%% Do not indent
+\setlength\parindent{0in}
+
+%% MARGIN YEARS
+\usepackage{marginnote} % *DT
+\newcommand{\years}[1]{\marginnote{\small #1}} % *DT
+
+%% PUBLICATIONS, ETC. - takes two arguments; the first is the year of
+%%%% publication and the second is the bibtex label
+\newcommand{\publication}[2]{
+\years{#1} \bibentry{#2}. \par\vspace{0.8mm}
+}
+
+\newcommand{\cd}{$\cdot${ }}
+
+\renewcommand*{\raggedleftmarginnote}{} % *DT
+%\setlength{\marginparsep}{7pt} % *DT
+\reversemarginpar % *DT
+
+% HEADINGS
+\usepackage{sectsty}
+\usepackage[normalem]{ulem}
+\sectionfont{\mdseries\upshape\Large}
+\subsectionfont{\mdseries\scshape\normalsize}
+\subsubsectionfont{\mdseries\upshape\large}
+
+% DOCUMENT
+\begin{document}
+
+\nobibliography{template_bibliography.bib}
+
+{\LARGE My Name Here}\\[.5cm]
+\emph{My title here}, Department, Institution\\[0.2cm]
+Street address\\
+City, State, Zip, Country\\
+Phone: +1 234 567 8900\\
+email: me@institution.edu
+
+\section*{Areas of specialization}
+\noindent
+Pranks \cd Foul jokes \cd Ennui
+
+\section*{Education}
+\noindent
+\years{2011}\textsc{PhD} in Super Complicated Studies, Excellent University (expected)\\
+\years{1995}\textsc{BS} in Various Kinds of Experimentation, Liberal Weirdo College
+
+\section*{Honors \& awards}
+\noindent
+\years{2011}Award 1, Award agency 1\\
+\years{2007}Award 2, Award agency 2\\
+
+\section*{Patents}
+\noindent
+\years{2008}U.S. Patent 1,234,567,890,123. ``Method and apparatus something incredibly ingenious but totally unmarketable''.
+
+\section*{Publications \& talks}
+
+\subsection*{Journal articles, first author}
+\noindent
+
+\publication{2011}{key_for_publication_1}
+
+\publication{2010}{key_for_publication_2}
+
+\subsection*{Journal articles, co-author}
+\noindent
+
+\publication{2009}{key_for_publication_3}
+
+\subsection*{Conference presentations}
+\noindent
+
+\publication{2011}{key_for_publication_4}
+
+
+\bibliographystyle{plain}
+
+\end{document}
