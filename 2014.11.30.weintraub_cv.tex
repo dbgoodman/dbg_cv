@@ -1,0 +1,292 @@
+%------------------------------------
+% Dario Taraborelli
+% Typesetting your academic CV in LaTeX
+%
+% URL: http://nitens.org/taraborelli/cvtex
+% DISCLAIMER: This template is provided for free and without any guarantee
+% that it will correctly compile on your system if you have a non-standard
+% configuration.
+% Some rights reserved: http://creativecommons.org/licenses/by-sa/3.0/
+%------------------------------------
+
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[11pt, letterpaper]{article}
+\usepackage{fontspec}
+
+% DOCUMENT LAYOUT
+\usepackage{geometry}
+\geometry{a4paper, textwidth=5.5in, textheight=8.5in, marginparsep=7pt, marginparwidth=.6in}
+\setlength\parindent{0in}
+
+% FONTS
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\defaultfontfeatures{Mapping=tex-text} % converts LaTeX specials (``quotes'' --- dashes etc.) to unicode
+\setromanfont [Ligatures={Common}, Numbers={OldStyle}]{Hoefler Text}
+\setmonofont[Scale=0.8]{Monaco}
+\setsansfont[Scale=0.9]{Optima Regular}
+% ---- CUSTOM AMPERSAND
+\newcommand{\amper}{{\fontspec[Scale=.95]{Hoefler Text}\selectfont\itshape\&}}
+% ---- MARGIN YEARS
+\usepackage{marginnote}
+\newcommand{\years}[1]{\marginnote{\scriptsize #1}}
+\renewcommand*{\raggedleftmarginnote}{}
+\setlength{\marginparsep}{7pt}
+\reversemarginpar
+
+% HEADINGS
+\usepackage{sectsty}
+\usepackage[normalem]{ulem}
+\sectionfont{\sffamily\mdseries\large\underline}
+\subsectionfont{\rmfamily\mdseries\scshape\normalsize}
+\subsubsectionfont{\rmfamily\bfseries\upshape\normalsize}
+\usepackage{multicol}
+
+% BIBTEX
+\usepackage{bibentry} % must have natbib package installed
+% \newcites{first-author}{Journal articles, first author}
+% \newcites{co-author}{Journal articles, co-author}
+% \newcites{conf}{Conference Proceedings}
+% \newcites{present}{Conference Presentations}
+% \newcites{press}{Press}
+
+% For setting item spacing
+\usepackage{enumitem}
+\setlist{noitemsep}
+
+% PDF SETUP
+% ---- FILL IN HERE THE DOC TITLE AND AUTHOR
+\makeatletter\let\saved@bibitem\@bibitem\makeatother
+\usepackage[xetex, bookmarks, colorlinks, breaklinks, pdftitle={Daniel B. Goodman - vita},pdfauthor={Daniel Goodman}]{hyperref}
+\makeatletter\let\@bibitem\saved@bibitem\makeatother
+\hypersetup{linkcolor=blue,citecolor=blue,filecolor=black,urlcolor=blue}
+
+%% PUBLICATIONS, ETC. - takes two arguments; the first is the year of
+%%%% publication and the second is the bibtex label
+
+%% http://tex.stackexchange.com/questions/18664/underline-my-name-in-the-bibliography
+\newcommand{\myname}[1]{\textit{#1}}
+
+\newcommand{\publication}[2]{\vbox{
+\years{#1} \bibentry{#2}. \par\vspace{0.8mm}
+}}
+
+\newcommand{\cd}{$\cdot${ }}
+
+
+% DOCUMENT
+\begin{document}
+
+\nobibliography{citations_w_bold}
+
+\textsf{\LARGE Daniel Bryan Goodman}\\[1cm]
+\begin{multicols}{2}
+Wyss Institute for Bioinspired \mbox{Engineering}\\
+528-3C Center for Life Sciences\\
+3 Blackfan Circle\\
+Boston, MA \texttt{02115}
+U.S.A.\\[.2cm]
+
+Phone: \texttt{617-459-2949}\\
+email: \href{mailto:dbg@mit.edu}{dbg@mit.edu}\\
+\textsc{url}: \href{http://www.dbgoodman.com/}{http://www.dbgoodman.com/}\\
+\end{multicols}
+
+%%\hrule
+\section*{Current position}
+\emph{PhD Candidate}, Harvard-MIT Division of Health Science and Technology, Masschusetts Institute of Technology. \emph{Expected graduation: May, 2015}
+\\[2mm]
+\emph{Hometown Media Outlet: Orange County Register}
+
+%%\hrule
+\section*{Academic Background}
+
+\years{2015}\textsc{PhD} in Medical Engineering and Medical Physics, Massachusetts Institute of Technology. Cambridge, MA, USA. \\
+
+\noindent\years{2008-2009}Whitaker International Bioengineering Fellow, University of Cambridge. Cambridge, UK.\\
+
+\noindent\years{2008}\textsc{BS} in Bioengineering w/ specialization in Bioinformatics, University of California at San Diego. La Jolla, CA, USA.\\
+
+
+%%\hrule
+\section*{Research Experience}
+
+\noindent\years{2010-}
+\emph{Doctoral Thesis Research:} Department of Genetics, Harvard Medical School. Boston, MA. (advisor: Dr. George M. Church)
+\begin{itemize}
+	\item Multiplexed characterization of genetic regulatory elements using novel high-throughput fluorescent quantitation technique
+	\item Identified RNA secondary structure as major determinant of 5' codon bias in bacterial genomes, implications for improved codon optimization
+    \item Developed cloud-based software for high-throughput bacterial genome analysis and engineering
+    \item Multiplexed design, synthesis, and measurement of synthetic gene regulatory networks for optimized molecular sensors\\[5mm]
+\end{itemize}
+
+\noindent\years{2011}
+Harvard University, MA. International Genetically Engineered Machine Competition. (advisor: Dr. George M. Church)
+\begin{itemize}
+    \item Led a team of undergraduate students to designed and synthesize fifty-thousand zinc finger monomers from a printed oligonucleotide array
+    \item Developed a novel selection system to test fingers in multiplex using a two-hybrid system in E. coli
+\end{itemize}
+
+\noindent\years{2008-2009}
+University of Cambridge, UK. Whitaker International Bioengineering Fellowship. (advisor: Dr. Simon Tavaré)
+\begin{itemize}
+    \item Built microfluidics platform to automate sequential oligo-probe DNA sequencing
+    \item Wrote image analysis software in C++/R/Matlab to analyze terabytes of fluorescent bead image data
+    \item Developed a novel experimental method for identifying methylation patterns in single cells using emulsion PCR, fluorescent microscopy, and image analysis
+\end{itemize}
+
+\noindent\years{2008}
+University of Cambridge, UK. International Genetically Engineered Machine Competition, University of Cambridge Team.  (advisors: Drs. Jim Haseloff, Gos Micklem, Jim Ajioka)
+\begin{itemize}
+    \item Led a team of undergraduate engineers, mathematicians, biologists
+    \item Designed and built a two-component signaling system to produce spatial patterning using standardized genetic parts
+\end{itemize}
+
+\noindent\years{2005-2008}
+\emph{Undergraduate Thesis Research:} University of California, San Diego. (advisor: Dr. Pavel Pevzner)
+\begin{itemize}
+    \item Developed algorithm to determine evolutionary relationships of small genomes based on paralogous gene ordering; improved phylogeny of baculoviruses
+    \item Developed software tools to validate genome annotations via comparative genomics and mass spectrometry data
+\end{itemize}
+
+\noindent\years{2007-2008}
+\emph{Undergraduate Thesis Research:} RSCB Protein Data Bank, San Diego, CA. (advisors: Drs. Phillip E. Bourne and Lei Xie.)
+\begin{itemize}
+    \item Functional site characterization/analysis, mining data from Protein Data Bank
+    \item Used protein docking software (DOCK, Autodock) to identify binding profiles
+    \item Profiles analyzed to find potential off-site targets for major pharmaceuticals
+    \item Presented work at ISMB 2007 in Vienna, Austria
+\end{itemize}
+
+\noindent\years{2006}
+Osaka University, Osaka, Japan. (advisors: Drs. Shinji Shimojo and Phillip E. Bourne)
+\begin{itemize}
+    \item Used automated docking software (DOCK) in a Grid environment
+    \item Performed virtual ligand screening on a novel human kinase target
+    \item Developed distributed software framework to interface with DOCK
+    \item Presented research at Supercomputing 2006\\[5mm]
+\end{itemize}
+
+\noindent\years{2004-2006}
+University of California, Irvine. (advisor: Dr. Abraham P. Lee)
+\begin{itemize}
+    \item Conducted microfluidics impedence-based cell-sensing experiments
+    \item Designed and fabricated microfluidic devices in a cleanroom environment
+    \item Assembled hardware for microfluidic flow control
+    \item Wrote software for microfluidic device data acquisition
+\end{itemize}
+
+\noindent\years{2004-2006}
+Google Summer of Code. (advisor: Shankar Subramaniam)
+\begin{itemize}
+    \item Created an online unified searchable database of gene and protein homology data
+    \item Released the source code on the open-source community SourceForge
+\end{itemize}
+
+
+%\hrule
+\section*{Honors \amper{} awards}
+
+\noindent\years{2012}SynBERC Practices Fellow, Six Parties Synthetic Biology Symposium\\
+
+\noindent\years{2009-2014}National Science Foundation Graduate Research Fellowship\\
+
+\noindent\years{2008-2009}Whitaker International Bioengineering Fellow\\
+
+\noindent\years{2006}Pacific Rim Undergraduate Experience (PRIME) Award Recipient\\
+
+\noindent\years{2005}Project Showcase, Google Summer of Code\\
+
+\noindent\years{2003-2007}Provost Honors, Eleanor Roosevelt College at UCSD
+\section*{Publications \& talks}
+
+\subsection*{Journal articles}
+\noindent
+
+\publication{2014}{gregg2014rational}
+
+\publication{2013}{lajoie2013genomically}
+
+\publication{2013}{goodman2013causes}
+
+\publication{2013}{kosuri2013composability}
+
+\publication{2007}{goodman2007baculovirus}
+
+\publication{2011}{isaacs2011precise}
+
+\publication{2009}{tiemann2009product}
+
+\publication{2008}{gupta2008comparative}
+
+\subsection*{Journal articles submitted/in preparation}
+\noindent
+
+\publication{(2015)}{goodman2015millstone}
+
+\publication{(2015)}{kuznetsov2015recoli}
+
+\subsection*{Conference proceedings}
+\noindent
+
+\publication{2005}{lee2005m3}
+
+\publication{2004}{lee2004nanochannel}
+
+\subsection*{Conference Presentations}
+\noindent
+
+\publication{2014}{goodman2014talk-synberc-millstone}
+
+\publication{2013}{goodman2013talk-wyss-synthesis}
+
+\publication{2013}{goodman2013talk-sb6-composability}
+
+\publication{2012}{goodman2012talk-synberc-synthesis}
+
+\publication{2008}{goodman2008talk-igem}
+
+\publication{2007}{goodman2007talk-ismb}
+
+\publication{2006}{goodman2006talk-baculo}
+
+\publication{2006}{goodman2006talk-docking}
+
+\subsection*{Press/Media}
+\noindent
+
+\publication{2013}{press2013science_podcast}
+
+\publication{2013}{press2013getsynbio}
+
+\publication{2011}{press2011nyt_recoli}
+
+\publication{2008}{press2008leading_edge}
+
+\section*{Teaching}
+\noindent
+
+\noindent\years{2011}Head Teaching Fellow, International Genetically Engineered Machines (iGEM) Team, Harvard University\\
+
+\noindent\years{2007-2008}Salk Mobile Science Laboratory\\
+
+\noindent\years{2007}Biology Teaching Assistant, University of California at San Diego.\\
+
+%\vspace{1cm}
+\vfill{}
+%\hrulefill
+
+\begin{center}
+{\scriptsize  Last updated: \today\- •\- Typeset in \href{http://nitens.org/taraborelli/cvtex}{
+\fontspec{Times New Roman}\XeTeX }\\
+% ---- FILL IN THE FULL URL TO YOUR CV HERE
+Papers, source code, and more information about past
+research can be found at my website:
+\href{http://www.dbgoodman.com}{http://www.dbgoodman.com}}
+\end{center}
+
+\bibliographystyle{plain}
+
+\end{document}

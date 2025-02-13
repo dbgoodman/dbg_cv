@@ -1,0 +1,352 @@
+%------------------------------------
+% Dario Taraborelli
+% Typesetting your academic CV in LaTeX
+%
+% URL: http://nitens.org/taraborelli/cvtex
+% DISCLAIMER: This template is provided for free and without any guarantee
+% that it will correctly compile on your system if you have a non-standard
+% configuration.
+% Some rights reserved: http://creativecommons.org/licenses/by-sa/3.0/
+%------------------------------------
+
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[11pt, letterpaper]{article}
+\usepackage{fontspec}
+
+% DOCUMENT LAYOUT
+\usepackage{geometry}
+\geometry{a4paper, textwidth=6in, textheight=10in, marginparsep=7pt, marginparwidth=.6in}
+\setlength\parindent{0in}
+
+% FONTS
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\defaultfontfeatures{Mapping=tex-text} % converts LaTeX specials (``quotes'' --- dashes etc.) to unicode
+\setromanfont [Ligatures={Common}, Numbers={OldStyle}]{QTPalatine}
+\setmonofont[Scale=0.8]{Liberation Mono}
+\setsansfont[Scale=0.9]{QTOptimum}
+% ---- CUSTOM AMPERSAND
+\newcommand{\amper}{{\fontspec[Scale=.95]{QTPalatine}\selectfont\itshape\&}}
+% ---- MARGIN YEARS
+\usepackage{marginnote}
+\newcommand{\years}[1]{\marginnote{\scriptsize #1}}
+\renewcommand*{\raggedleftmarginnote}{}
+\setlength{\marginparsep}{7pt}
+\reversemarginpar
+
+% HEADINGS
+\usepackage{sectsty}
+\usepackage[normalem]{ulem}
+\sectionfont{\sffamily\mdseries\large\sectionrule{0pt}{0pt}{-5pt}{0.8pt}}
+\subsectionfont{\rmfamily\mdseries\scshape\normalsize}
+\subsubsectionfont{\rmfamily\bfseries\upshape\normalsize}
+\usepackage{multicol}
+
+% BIBTEX
+\usepackage[backend=biber,
+           bibstyle=nature,sorting=ydnt,sortcites=true,natbib=true,defernumbers=true,
+           maxbibnames=99,giveninits=true,uniquename=false,subentry]{biblatex} % must have natbib package installed
+% \newcites{first-author}{Journal articles, first author}
+% \newcites{co-author}{Journal articles, co-author}
+% \newcites{conf}{Conference Proceedings}
+% \newcites{present}{Conference Presentations}
+% \newcites{press}{Press}
+\addbibresource{citations.bib}
+\nocite{*}
+
+% HIGHLIGHTS ON AUTHOR NAMES
+% HT to http://www.hansenlab.org/cv_bibliography_tex
+\renewcommand*{\mkbibnamegiven}[1]{
+\ifitemannotation{highlight}
+{\textbf{#1}}
+{#1}}
+\renewcommand*{\mkbibnamefamily}[1]{
+\ifitemannotation{highlight}
+  {\textbf{#1}}
+  {#1}%
+\ifitemannotation{first}
+  {\textsuperscript{*}}
+  {}%
+\ifitemannotation{corresponding}
+  {$^\dagger$}
+  {}%
+}%%
+
+% MAKE JOURNAL ARTICLE NAMES BOLD
+\DeclareFieldFormat{journaltitle}{\textbf{#1}}
+
+\usepackage{xpatch}
+
+% Use the original 'article' driver but remove the 'note' field
+\xpatchbibdriver{article}
+  {\usebibmacro{note+pages}}
+  {\usebibmacro{pages}}
+  {}{}
+
+% Add custom note format for articles with 'selected' keyword
+\xpatchbibdriver{article}
+  {\usebibmacro{finentry}}
+  {\ifkeyword{selected}{
+     \iffieldundef{note}
+       {} % Do nothing if there's no note
+       {\setunit{}% Remove the punctuation
+        \par % Start a new paragraph
+        \vspace{0.5em} % Adjust vertical space as desired
+        \hangindent=2em % Adjust hanging indent as desired
+        \printfield{note}} % Prints the note field
+   }{}
+   \finentry}
+  {}{}
+
+\renewbibmacro{in:}{}
+
+\newbibmacro*{pages}{%
+  \printfield{pages}%
+  \newunit}
+
+% NOHYPHENS
+\usepackage{hyphenat}
+
+% PDF SETUP
+% ---- FILL IN HERE THE DOC TITLE AND AUTHOR
+\makeatletter\let\saved@bibitem\@bibitem\makeatother
+\usepackage[xetex, bookmarks, colorlinks, breaklinks, pdftitle={Daniel B. Goodman - vita},pdfauthor={Daniel Goodman}]{hyperref}
+\makeatletter\let\@bibitem\saved@bibitem\makeatother
+\hypersetup{linkcolor=blue,citecolor=blue,filecolor=black,urlcolor=blue}
+
+%% PUBLICATIONS, ETC. - takes two arguments; the first is the year of
+%%%% publication and the second is the bibtex label
+
+%% http://tex.stackexchange.com/questions/18664/underline-my-name-in-the-bibliography
+% \newcommand{\myname}[1]{\textit{#1}}
+
+% \newcommand{\publication}[2]{
+% \years{#1} \bibentry{#2}. \par\vspace{0.8mm}
+% }
+
+\newcommand{\cd}{$\cdot${ }}
+
+% DOCUMENT
+\begin{document}
+
+\textsf{\huge Daniel Bryan Goodman, PhD}\\[0cm]
+\begin{multicols}{2}
+University of California, San Francisco
+HSE301\\
+550 Parnassus Ave.\\
+San Francisco, CA \texttt{94158}
+U.S.A.\\[0cm]
+
+\columnbreak
+
+Phone: \texttt{617-459-2949}\\
+email: \href{mailto:daniel.goodman@ucsf.edu}{daniel.goodman@ucsf.edu}\\
+\textsc{url}: \href{http://www.dbgoodman.com/}{http://www.dbgoodman.com/}\\
+\end{multicols}
+
+%%\hrule
+\section*{Scientific Interests and Goals}
+
+My work focuses on developing high-throughput approaches to understand and engineer the human immune system. In particular, I am interested in using tools from synthetic biology to both understand and control immune cell differentiation, activation, expansion, and homeostasis for therapeutic applications, with an emphasis on cell therapies for cancer. To this end I use generative computational models to design new receptors, circuits and other genetic elements at scale, and then synthesize, deliver, and measure  these DNA sequences in high-throughput pooled single-cell functional assays.
+
+%%\hrule
+\section*{Current position}
+\emph{Post-doctoral Fellow}, University of California, San Francisco
+ 
+%%\hrule
+\section*{Areas of specialization}
+\nohyphens{
+Synthetic Biology \cd Cancer Immunotherapy \cd Immunology  \cd Systems Biology \cd Genome Engineering \cd Bioinformatics \cd Computational Biology \cd Technology Development for Molecular Biology \cd Oligonucleotide Libraries \cd Pooled genetic selections and screens \cd Comparative Genomics and Evolution \cd Data Visualization }
+
+%\hrule
+\section*{Education}
+\years{2017-} Postdoctoral Fellowship, University of California at San Francisco \vspace{0.05cm}\\
+{\footnotesize --- Advisors: \textit{Kole T. Roybal, Alex Marson, Jeff A. Bluestone}}\\
+{\footnotesize --- Jane Coffin Childs Postdoctoral Fellow} \\
+
+
+\years{2009-2016}\textsc{PhD} in Bioinformatics and Integrative Genomics, \\Massachusetts Institute of Technology \vspace{0.05cm}\\
+{\footnotesize --- Thesis: \textit{Understanding Genetic Systems through Multiplexed Design, Synthesis, and Measurement}}\\
+{\footnotesize --- Advisor: \textit{George M. Church}}\\
+{\footnotesize --- NSF Graduate Research Fellow} \\
+
+\noindent\years{2008-2009}Whitaker International Bioengineering Fellow, University of Cambridge. \vspace{0.05cm}\\
+{\footnotesize --- Project: \textit{Image Recognition and Microfluidics for Bead-based DNA Sequencing}}\\
+{\footnotesize --- Advisor: \textit{Simon Tavaré}}\\
+
+\noindent\years{2003-2008}\textsc{BS} in Bioengineering w/ specialization in Bioinformatics, \\University of California at San Diego \vspace{0.05cm}\\
+{\footnotesize --- Senior Thesis: \textit{Viral Genome Rearrangements in Baculoviridae inform phylogeny and function}}\\
+{\footnotesize --- Advisor: \textit{Pavel A. Pevzner}}\\
+
+\goodbreak 
+
+%\hrule
+\section*{Honors \amper{} awards}
+
+\noindent\years{2023}Irving Cancer Immunology Symposium Fellow \\
+
+\noindent\years{2021}Fifty Years: 50 Fifty\\{\footnotesize 50 top early-career scientists at the intersection of Academia and entrepreneurship}\\
+
+\noindent\years{2017}Jane Coffin Childs Memorial Postdoctoral Fellowship \\
+
+\noindent\years{2015}Martha Gray Prize for Excellence in Research, Harvard-MIT Division of Health Science and Technology\\
+
+\noindent\years{2012}SynBERC Practices Fellow, Six Parties Synthetic Biology Symposium\\
+
+\noindent\years{2009-2014}National Science Foundation Graduate Research Fellowship\\
+
+\noindent\years{2008-2009}Whitaker International Bioengineering Fellow\\
+
+\noindent\years{2003-2007}Provost Honors, Eleanor Roosevelt College at UCSD\\
+
+\noindent\years{2006}Pacific Rim Undergraduate Experience (PRIME) Award Recipient\\
+
+\noindent\years{2005}Google Summer of Code Award\\
+
+\section*{Consulting and Scientific Advisory Roles}
+
+\noindent\years{2022-present}Retro Bio, Scientific Advisor\\
+{\footnotesize T Cell Therapy Program}\\
+
+\noindent\years{2021-present}Manifold Bio, Scientific Advisor\\
+{\footnotesize Immunology and Library Methods Development}\\
+
+\noindent\years{2020-present}NeXTNet Inc., Scientific Advisor\\
+{\footnotesize Bioinformatics, Immuno-oncology, Machine Learning}\\
+
+\noindent\years{2019-2020}Arsenal Bio, Scientific Consultant\\
+{\footnotesize Inventor on foundational IP, assisted with early implementation of T cell screening technology}\\
+
+\noindent\years{2018-2019}HelixNano, Scientific Consultant\\
+{\footnotesize Computational Biology and Human Transcriptomics for RNA Therapy}\\
+
+\section*{Funding Awarded}
+
+\noindent\years{2021}Longevity Impetus Grant\\
+{\footnotesize \$250,000; applied for, written, and awarded as independent PI}\\
+
+\noindent\years{2021}Parker Institute Project Grant\\
+{\footnotesize \$250,000; written with Kole Roybal}\\
+
+\section*{Publications \& talks}
+% keywords: https://tex.stackexchange.com/questions/43829/biblatex-multible-bibliographies-using-keywords-not-working
+
+\nocite{selected_cite_1}
+\nocite{selected_cite_2}
+\nocite{selected_cite_3}
+\nocite{selected_cite_4, selected_cite_5}
+\nocite{selected_cite_6}
+
+\printbibliography[title=Selected Publications with description of impact, keyword=selected, heading=subbibliography, resetnumbers=true]
+
+\printbibliography[title=All Journal articles, keyword=journal, heading=subbibliography, resetnumbers=true]
+
+\printbibliography[title=Reviews, keyword=review, heading=subbibliography, resetnumbers=true]
+
+\printbibliography[title=Conference papers, keyword=conference, heading=subbibliography, resetnumbers=true]
+
+\printbibliography[title=Invited Talks, keyword=talk, heading=subbibliography, resetnumbers=true]
+
+%\printbibliography[title=Preprints, keyword=preprint, heading=subbibliography, resetnumbers=true]
+
+\printbibliography[title=Patents, keyword=patent, heading=subbibliography, resetnumbers=true]
+
+\printbibliography[title=Press, keyword=press, heading=subbibliography, resetnumbers=true]
+
+
+\section*{Teaching}
+\noindent
+
+\noindent\years{2018-2019} Guest Lecturer, Cellular Design 1 Course, Bristol University\\
+
+\noindent\years{2017} Guest Lecturer, SynBio CDT Course, Oxford University \\
+
+\noindent\years{2016}Judge, International Genetically Engineered Machines (iGEM), World Finals, Boston, MA\\
+
+\noindent\years{2015} Lecturer, ENG-SCI 222: Advanced Cellular Engineering, School of Engineering and Applied Sciences, Harvard University \\
+
+\noindent\years{2011}Head Teaching Fellow, International Genetically Engineered Machines (iGEM) Team, Harvard University\\
+
+\noindent\years{2007-2008}Salk Mobile Science Laboratory\\
+
+\noindent\years{2007}Biology Teaching Assistant, University of California at San Diego.\\
+
+\section*{Mentoring}
+\noindent
+
+\noindent\years{2023}Mentored MD/PhD Student Ankit Salhotra, UCSF\\ 
+
+\noindent\years{2023}Mentored PhD Student Kamyar Yazdani , UCSF\\ 
+
+\noindent\years{2022-present}Mentored technician Clarity Chua, UCSF\\ 
+
+\noindent\years{2022-present}Mentored technician Majo Duran, UCSF\\ 
+
+\noindent\years{2018-2022}Mentored PhD student Camillia Azimi, UCSF\\ 
+{\footnotesize Currently postdoc, Mount Sinai, NYC}\\
+
+\noindent\years{2017-2020}Mentored technician Emily Park, UCSF\\ 
+{\footnotesize Currently PhD Student, Fred Hutchinson Cancer Center}\\
+
+\noindent\years{2018-2020}Mentored technician Kendall Kearns, UCSF\\ 
+{\footnotesize Currently PhD Student, UCSD}\\
+
+\noindent\years{2013-2020}Mentored PhD student Max Schubert, Harvard University\\ 
+{\footnotesize Currently postdoc at Harvard / Wyss Institute}\\
+
+\noindent\years{2013-2015}Mentored MS student Casper Enghuus, Harvard University\\ 
+{\footnotesize Currently Partner at BCG}\\
+
+\noindent\years{2012-2014}Mentored PhD Student Gleb Kuznetsov, Harvard University\\ 
+{\footnotesize Currently CEO, Manifold Bio}\\
+
+\begin{samepage}
+\section*{References with Contact Info}
+\noindent
+
+\noindent\years{ }Prof. Kole Roybal, PhD\\ 
+{\footnotesize Associate Professor, Dept. of Microbiology and Immunology, UCSF\\
+    Phone: \texttt{1-415-476-8289}\\
+    email: \href{mailto:kole.roybal@ucsf.edu}{kole.roybal@ucsf.edu}\\
+}\\
+
+\noindent\years{ }Prof. Alexander Marson, MD, PhD\\ 
+{\footnotesize Director of the Gladstone-UCSF Institute of Genomic Immunology, Gladstone Institutes\\
+    Phone: \texttt{1-415-502-2611}\\
+    email: \href{mailto:alexander.marson@ucsf.edu}{alexander.marson@ucsf.edu}\\
+}\\
+
+\noindent\years{ }Prof. George Church, PhD\\ 
+{\footnotesize Robert Winthrop Professor of Genetics, Harvard Medical School\\
+    Phone: \texttt{1-617-432-7562}\\
+    email: \href{mailto:gchurch@genetics.med.harvard.edu}{gchurch@genetics.med.harvard.edu}\\
+}\\
+
+\noindent\years{ }Dr. Jeffrey Bluestone, PhD\\ 
+{\footnotesize President \& CEO, Sonoma Bio\\
+    Phone: \texttt{1-415-716-9117}\\
+    email: \href{mailto:jbluestone@sonomabio.com}{jbluestone@sonomabio.com}\\
+}\\
+
+\noindent\years{ }Dr. Sriram Kosuri, ScD\\ 
+{\footnotesize CEO, Octant Bio\\
+    Phone: \texttt{1-617-852-4806}\\
+    email: \href{mailto:sri@octant.bio}{sri@octant.bio}\\
+}\\
+
+\end{samepage}
+
+\begin{center}
+{\scriptsize  Last updated: \today\- •\- Typeset in \href{http://nitens.org/taraborelli/cvtex}{
+\fontspec{Times New Roman}\XeTeX }\\
+% ---- FILL IN THE FULL URL TO YOUR CV HERE
+Papers, source code, and more information about past
+research can be found at my website:
+\href{http://www.dbgoodman.com}{http://www.dbgoodman.com}}
+\end{center}
+
+% \bibliographystyle{nature}
+
+\end{document}
