@@ -1,9 +1,10 @@
 %%%% DBG and DBG-lab refs - used in CV and website.
 %%%% author+an data tells which authors should be annotated first-author, highlighted, etc.
-%%%% Notes are for blurbs on the website.
-%%%% Duplicates (selected_cite_1, etc) are used for selected publications section on website and some versions of the CV.
+%%%% Notes are for blurbs and website
+%%%% Duplicates (selected_cite_1, etc) are used for selected publications section on some versions of the CV.
+%%%% Only keyword == journal are kept on website, keyword == selected means it is used in the selected publications section on the website.
 
-%%%% SELECTED REFS WITH BLURBS (DUPLICATES)
+%%%% SELECTED REFS WITH BLURBS (DUPLICATES, for CV not website)
 
 
 @ARTICLE{selected_cite_1,
@@ -107,18 +108,19 @@
 
 %%%%% ALL REFS
 
-@article {Chang2024.02.06.576175,
-	author = {Christopher R. Chang and Vivasvan S. Vykunta and Daniel B. Goodman and Joseph J. Muldoon and William A. Nyberg and Chang Liu and Vincent Allain and Allison Rothrock and Charlotte H. Wang and Alexander Marson and Brian R. Shy and Justin Eyquem},
-	title = {Ultra-high efficiency T cell reprogramming at multiple loci with SEED-Selection},
-	elocation-id = {2024.02.06.576175},
-	year = {2024},
-	doi = {10.1101/2024.02.06.576175},
-	publisher = {Cold Spring Harbor Laboratory},
-	abstract = {Multiplexed reprogramming of T cell specificity and function can generate powerful next-generation cellular therapies. However, current manufacturing methods produce heterogenous mixtures of partially engineered cells. Here, we develop a one-step process to enrich for unlabeled cells with knock-ins at multiple target loci using a family of repair templates named Synthetic Exon/Expression Disruptors (SEEDs). SEED engineering associates transgene integration with the disruption of a paired endogenous surface protein, allowing non-modified and partially edited cells to be immunomagnetically depleted (SEED-Selection). We design SEEDs to fully reprogram three critical loci encoding T cell specificity, co-receptor expression, and MHC expression, with up to 98\% purity after selection for individual modifications and up to 90\% purity for six simultaneous edits (three knock-ins and three knockouts). These methods are simple, compatible with existing clinical manufacturing workflows, and can be readily adapted to other loci to facilitate production of complex gene-edited cell therapies.Competing Interest StatementC.R.C., V.S.V., A.M., B.S., and J.E. are inventors on patent filings related to this work. J.E. is a compensated co-founder at Mnemo Therapeutics and a compensated scientific advisor to Cytovia Therapeutics. J.E. owns stocks in Mnemo Therapeutics and Cytovia Therapeutics. J.E. has received a consulting fee from Casdin Capital, Resolution Therapeutics, and Treefrog Therapeutics. The Eyquem lab has received research support from Cytovia Therapeutics, Mnemo Therapeutics, and Takeda Pharmaceutical Company. A.M. is a co-founder of Arsenal Biosciences, Function Bio, Spotlight Therapeutics, and Survey Genomics, serves on the boards of directors at Function Bio, Spotlight Therapeutics and Survey Genomics, is a member of the scientific advisory boards of Arsenal Biosciences, Function Bio, Spotlight Therapeutics, Survey Genomics, NewLimit, Amgen, Tenaya, and Lightcast, owns stock in Arsenal Biosciences, Function Bio, Spotlight Therapeutics, NewLimit, Survey Genomics, Tenaya, and Lightcast, and has received fees from Arsenal Biosciences, Spotlight Therapeutics, NewLimit, 23andMe, PACT Pharma, Juno Therapeutics, Tenaya, Lightcast, Trizell, Vertex, Merck, Amgen, Genentech, AlphaSights, Rupert Case Management, Bernstein, GLG, ClearView Healthcare Partners, and ALDA. A.M. is an investor in and informal advisor to Offline Ventures and a client of EPIQ. The Marson laboratory has received research support from Juno Therapeutics, Epinomics, Sanofi, GlaxoSmithKline, Gilead, and Anthem.},
-	journal = {bioRxiv},
-        keywords = {preprint},
-        author+an =  {3=highlight}
-
+@article{chang2025seed,
+  title={SEED-Selection enables high-efficiency enrichment of primary T cells edited at multiple loci},
+  author={Chang, Christopher R and Vykunta, Vivasvan S and Lee, Jae Hyun J and Li, Ke and Kochendoerfer, Clara and Muldoon, Joseph J and Wang, Charlotte H and Mazumder, Thomas and Sun, Yang and Goodman, Daniel B and Nyberg, William A and Liu, Chang and Allain, Vincent and Rothrock, Allison and Ye, Chun J and Marson, Alexander and Shy, Brian R and Eyquem, Justin},
+  journal={Nature Biotechnology},
+  year={2025},
+  month={Feb},
+  day={05},
+  abstract={Engineering T cell specificity and function at multiple loci can generate more effective cellular therapies, but current manufacturing methods produce heterogenous mixtures of partially engineered cells. Here we develop a one-step process to enrich unlabeled cells containing knock-ins at multiple target loci using a family of repair templates named synthetic exon expression disruptors (SEEDs). SEEDs associate transgene integration with the disruption of a paired target endogenous surface protein while preserving target expression in nonmodified and partially edited cells to enable their removal (SEED-Selection). We design SEEDs to modify three critical loci encoding T cell specificity, coreceptor expression and major histocompatibility complex expression. The results demonstrate up to 98{\%} purity after selection for individual modifications and up to 90{\%} purity for six simultaneous edits (three knock-ins and three knockouts). This method is compatible with existing clinical manufacturing workflows and can be readily adapted to other loci to facilitate production of complex gene-edited cell therapies.},
+  issn={1546-1696},
+  doi={10.1038/s41587-024-02531-6},
+  url={https://doi.org/10.1038/s41587-024-02531-6},
+  keywords = {journal, web_selected},
+  author+an = {10=highlight}
 }
 
 
@@ -139,7 +141,7 @@
   year      =  2024,
   copyright = "https://www.springernature.com/gp/researchers/text-and-data-mining",
   language  = "en",
-  keywords = {journal},
+  keywords = {journal, web_selected},
   author+an =  {1=first; 2=first; 7=highlight}
 }
 
@@ -172,7 +174,7 @@
   pages    = "348--353",
   month    =  jul,
   year     =  2011,
-  keywords = {journal},
+  keywords = {journal, web_selected},
   author+an =  {9=highlight}
 }
 
@@ -250,7 +252,7 @@
   pages={14024--14029},
   year={2013},
   publisher={National Academy of Sciences},
-  keywords = {journal, first_author},
+  keywords = {journal, first_author, web_selected},
   author+an =  {1=first; 2=first, highlight}
 }
 
@@ -263,7 +265,7 @@
   pages={475--479},
   year={2013},
   publisher={American Association for the Advancement of Science},
-  keywords = {journal, first_author},
+  keywords = {journal, first_author, web_selected},
   author+an =  {1=highlight}
 }
 
@@ -282,7 +284,7 @@
   pages    = "357--360",
   month    =  oct,
   year     =  2013,
-  keywords = {journal},
+  keywords = {journal, web_selected},
   author+an =  {1=first; 2=first; 3=highlight}
 }
 
@@ -377,7 +379,7 @@
   pages    = "819--822",
   month    =  aug,
   year     =  2016,
-  keywords = "journal",
+  keywords = "journal, web_selected",
   author+an =  {14=highlight}
 }
 
@@ -422,7 +424,7 @@
   pages={1--7},
   year={2017},
   publisher={BioMed Central},
-  keywords = {journal, first_author},
+  keywords = {journal, first_author, web_selected},
   author+an = {1=highlight, first; 2=first}
 }
 
@@ -434,7 +436,7 @@
   pages={1--12},
   year={2017},
   publisher={BioMed Central},
-  keywords = {journal, first_author},
+  keywords = {journal, first_author, web_selected},
   author+an = {1=first; 2=highlight, first}
 }
 
@@ -446,7 +448,7 @@
   pages={1--11},
   year={2018},
   publisher={BioMed Central},
-  keywords = "journal",
+  keywords = "journal, web_selected",
   author+an = {3=highlight}
 }
 
@@ -500,7 +502,7 @@
   pages    = "44--49",
   month    =  jan,
   year     =  2020,
-  keywords = "journal",
+  keywords = "journal, web_selected",
   author+an = {9=highlight}
 }
 
@@ -524,7 +526,7 @@
   pages={e2018181118},
   year={2021},
   publisher={National Academy of Sciences},
-  keywords = {journal, first_author},
+  keywords = {journal, first_author, web_selected},
   author+an = {1=first; 2=first, highlight}
 }
 
@@ -545,7 +547,7 @@
   year     =  2020,
   keywords = "CRISPR; cell therapy; human T cell; knockins; pooled screen;
               single-cell RNA-seq",
-  keywords = "journal",
+  keywords = "journal, web_selected",
   author+an = {14=highlight}
 }
 
@@ -645,7 +647,7 @@
   pages    = "4216--4234.e33",
   month    =  sep,
   year     =  2023,
-  keywords = "journal",
+  keywords = "journal, web_selected",
   language = "en",
   author+an = {18=highlight}
 }
@@ -664,7 +666,7 @@
   pages    = "1761--1764",
   month    =  sep,
   year     =  2022,
-  keywords = "review",
+  keywords = "review, web_selected",
   author+an = {7=highlight}
 }
 
@@ -742,23 +744,11 @@
   pages     = "eabm1463",
   month     =  nov,
   year      =  2022,
-  keywords = {journal, first_author},
+  note = "Chimeric antigen receptors (CARs) repurpose natural signaling components to retarget T cells to cancer, but have shown limited efficacy in persistent, recurrent malignancies. To rapidly identify new CAR designs with clinical potential, I developed a multiplexed method called CAR Pooling. Forty CARs, with signaling domains derived from a range of immune cell lineages, were evaluated in pooled assays for their ability to stimulate critical T cell effector functions during repetitive stimulation that mimics long-term tumor antigen exposure. Several domains were identified that enhanced CAR function relative to clinical benchmarks after prolonged antigen stimulation, and in particular CAR T cells which used the signaling domain from the B cell receptor for BAFF (BAFF-R) were enriched for a highly cytotoxic transcriptional signature previously associated with positive clinical outcomes. I also showed that replacing the 4-1BB intracellular signaling domain with BAFF-R in a B cell maturation antigen (BCMA)–specific CAR resulted in enhanced activity in a xenotransplant model of multiple myeloma. These results demonstrate that multiplexed design and measurement of engineered receptors is a powerful strategy for understanding immune signaling and developing new and enhanced cellular therapies. \medskip \\ IP generated from this work, along with patented genome-editing methods developed with the Marson lab, became foundational technologies with which my postdoctoral advisors, Prof. Roybal and Prof Marson, co-founded Arsenal Biosciences. From 2018 to 2020 I served as a scientific consultant at Arsenal, helping to optimize and scale these tools into an exciting non-viral pooled T cell gene editing platform, which has developed new CAR-T therapies that are currently in clinical trials.",
+  keywords = {journal, first_author, web_selected},
   author+an = {1=highlight, first; 2=first}
 }
 
-@article{Christmas2023,
-  doi = {10.1126/science.abn3943},
-  url = {https://doi.org/10.1126/science.abn3943},
-  year = 2023,
-  month = apr,
-  publisher = {American Association for the Advancement of Science ({AAAS})},
-  volume = {380},
-  number = {6643},
-  author = {Matthew J. Christmas and Irene M. Kaplow and Diane P. Genereux and Michael X. Dong and Graham M. Hughes and Xue Li and Patrick F. Sullivan and Allyson G. Hindle and Gregory Andrews and Joel C. Armstrong and Matteo Bianchi and Ana M. Breit and Mark Diekhans and Cornelia Fanter and Nicole M. Foley and Daniel B. Goodman and Linda Goodman and Kathleen C. Keough and Bogdan Kirilenko and Amanda Kowalczyk and Colleen Lawless and Abigail L. Lind and Jennifer R. S. Meadows and Lucas R. Moreira and Ruby W. Redlich and Louise Ryan and Ross Swofford and Alejandro Valenzuela and Franziska Wagner and Ola Wallerman and Ashley R. Brown and Joana Damas and Kaili Fan and John Gatesy and Jenna Grimshaw and Jeremy Johnson and Sergey V. Kozyrev and Alyssa J. Lawler and Voichita D. Marinescu and Kathleen M. Morrill and Austin Osmanski and Nicole S. Paulat and BaDoi N. Phan and Steven K. Reilly and Daniel E. Sch\"{a}ffer and Cynthia Steiner and Megan A. Supple and Aryn P. Wilder and Morgan E. Wirthlin and James R. Xue and Bruce W. Birren and Steven Gazal and Robert M. Hubley and Klaus-Peter Koepfli and Tomas Marques-Bonet and Wynn K. Meyer and Martin Nweeia and Pardis C. Sabeti and Beth Shapiro and Arian F. A. Smit and Mark S. Springer and Emma C. Teeling and Zhiping Weng and Michael Hiller and Danielle L. Levesque and Harris A. Lewin and William J. Murphy and Arcadi Navarro and Benedict Paten and Katherine S. Pollard and David A. Ray and Irina Ruf and Oliver A. Ryder and Andreas R. Pfenning and Kerstin Lindblad-Toh and Elinor K. Karlsson},
-  title = {Evolutionary constraint and innovation across hundreds of placental mammals},
-  journal = {Science},
-author+an = {16=highlight},
-}
 
 @unpublished{goodman2024talk-gordianbio,
     Author = {Goodman, D. B.},
